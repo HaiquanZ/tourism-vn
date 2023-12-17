@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="header" nz-row nzJustify="space-between" nzAlign="middle">
+      <div>
+        <h1 nz-typography>Tourism VietNam</h1>
+      </div>
+      <div nz-row>
+        <p >Nhóm 50</p>
+        <p >Luyện</p>
+        <p >Minh</p>
+        <p >Ban</p>
+        <p >Quân</p>
+        <p >Khiêm</p>
+      </div>
+    </div>
+
+    <div class="slider">
+      <nz-carousel nzAutoPlay>
+        <div 
+          nz-carousel-content
+          *ngFor="let index of sliders"
+          [ngStyle]="{'background-image': 'url(' + index.img + ')'}"
+        >
+          <h3>{{ index.title }}</h3>
+        </div>
+      </nz-carousel>
+    </div>
+
+    <!-- <p>đm L</p> -->
+  
+    <div class="content">
+      <div class="trong-nuoc">
+        <h4>Du lịch Hà Nội</h4>
+        <div nz-row>
+          <div *ngFor="let item of lisItem" (click)="handleNavigation(item._id)" nz-col nzSpan="6" style="display: flex; justify-content: center;">
+            <app-card [data]="item"></app-card>
+          </div>
+        </div>
+      </div>
+
+      <div class="trong-nuoc">
+        <h4>Các chuyến du lịch khác</h4>
+        <div nz-row>
+          <div *ngFor="let item of listItem2" (click)="handleNavigation(item._id)" nz-col nzSpan="6" style="display: flex; justify-content: center;">
+            <app-card [data]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

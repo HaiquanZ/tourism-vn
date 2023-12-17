@@ -1,0 +1,33 @@
+<div class="card-component">
+    <div class="img-cover">
+        <img 
+            src="{{data.image_url}}"
+            alt=""
+            style="width: 100%;"
+        >
+    </div>
+
+    <div
+        class="item-title"
+        style="background-color: #ECECEC; font-weight: bold; padding-left: 10px; padding-right: 10px; height: 70px; margin-top: 5px;"
+    >
+        {{data.title}}
+    </div>
+
+    <div nz-row nzAlign="middle" class="detail-content">
+        <div nz-col nzSpan="16">
+            <div>
+                <span nz-icon nzType="car" nzTheme="outline"></span>
+                Phương tiện: {{data?.vehicle}}
+            </div>
+            <div>
+                <span nz-icon nzType="field-time" nzTheme="outline"></span>
+                Lịch trình: {{data?.duration}}
+            </div>
+        </div>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="7">
+            <div class="price">{{data.price}}</div>
+        </div>
+    </div>
+</div>

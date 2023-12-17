@@ -1,0 +1,64 @@
+<nz-spin [nzSpinning]="isLoading" [nzSize]="'large'">
+    <div nz-row class="detail">
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="14">
+            <h2 nz-typography style="margin-bottom: 5px !important;">{{data?.title}}</h2>
+            <p style="text-decoration: line-through;">{{data?.price_old}}</p>
+            <p style="color: #1890FF; font-size: 18px; font-weight: bold; margin-bottom: 5px;"><span>Giá chỉ: </span>{{data?.price}}</p>
+    
+            <div>
+                <img [src]="data?.image_url" alt="">
+            </div>
+    
+            <div class="content-item">
+                <h3 nz-typography>Thông tin nhanh</h3>
+                <div>
+                    <span nz-icon nzType="field-time" nzTheme="outline"></span>
+                    <span style="font-weight: bold;"> Lịch trình:</span> {{data?.duration}}
+                </div>
+                <div>
+                    <span nz-icon nzType="rise" nzTheme="outline"></span>
+                    <span style="font-weight: bold;"> Hành trình:</span> {{data?.trip}}
+                </div>
+                <div>
+                    <span nz-icon nzType="car" nzTheme="outline"></span>
+                    <span style="font-weight: bold;"> Phương tiện:</span> {{data?.vehicle}}
+                </div>
+                <div>
+                    <span nz-icon nzType="clock-circle" nzTheme="outline"></span>
+                    <span style="font-weight: bold;"> Khởi hành:</span> {{data?.time_depart}}
+                </div>
+            </div>
+    
+            <div class="hightlight">
+                <h3 nz-typography style="margin-top: 20px;">Điểm nhấn</h3>
+                <p>Xuất phát: {{data?.departure_place}}</p>
+                <br>
+                <p>{{data?.description}}</p>
+                <br>
+                <p>{{data?.highlights}}</p>
+            </div>
+    
+            <div class="detail">
+                <h3 nz-typography style="margin-bottom: 30px;">Lịch trình chi tiết</h3>
+                <nz-timeline>
+                    <nz-timeline-item *ngFor="let item of formattedData; let index = index">
+                        <div class="day-title">
+                            NGÀY {{index + 1}}: {{item.title}}
+                        </div>
+                        <div>
+                            {{item.detail}}
+                        </div>
+                    </nz-timeline-item>
+                </nz-timeline>
+            </div>
+        </div>
+        <div nz-col nzSpan="1"></div>
+        <div nz-col nzSpan="7">
+            <div *ngFor="let item of data?.related_items" style="margin-bottom: 25px;" (click)="handleNavigation(item._id)">
+                <app-card [data]="item"></app-card>
+            </div>
+        </div>
+        <div nz-col nzSpan="1"></div>
+    </div>
+</nz-spin>
